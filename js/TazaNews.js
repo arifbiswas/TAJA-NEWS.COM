@@ -15,7 +15,7 @@ const categoryDisplay = async () => {
   categorys.forEach((category) => {
     const { category_id, category_name } = category;
     // console.log(category_id,category_name);
-
+    // All category
     const childDiv = document.createElement("div");
     childDiv.classList.add("category");
     childDiv.innerHTML = `
@@ -26,8 +26,10 @@ const categoryDisplay = async () => {
 };
 categoryDisplay();
 
-const showNewsByCategory = async (id,name) => {
-  console.log(id);
+const showNewsByCategory = async (id = "All News", name) => {
+  // console.log(id,name);
+    const spinner = document.getElementById('spiner');
+    spinner.classList.remove("hidden");
 
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   const respons = await fetch(url);
@@ -47,8 +49,9 @@ const showNewsByCategory = async (id,name) => {
   childH5.innerText = `${foundTotalNews} Found News ${name}`;
   totalFoundNewsContainer.appendChild(childH5);
 
-  // console.log(news);
+  // all proparties
   loadnews.forEach((news) => {
+    //    console.log(news);
     const {
       author,
       details,
@@ -59,17 +62,18 @@ const showNewsByCategory = async (id,name) => {
       total_view,
       _id,
     } = news;
+    //    author proparties
     const { name, img, published_date } = author;
     // console.log(author);
     const newsDiv = document.createElement("div");
-    newsDiv.classList.add("card", "card-side", "bg-base-100");
+    newsDiv.classList.add("card", "md:card-side", "bg-base-100");
     newsDiv.innerHTML = `
         <figure>
-            <img class="h-96 w-80" src="${image_url}" alt="Movie" />
+            <img class="h-96 w-96" src="${thumbnail_url}" alt="Movie" />
           </figure>
           <div class="card-body">
             <h2 class="card-title">${title}</h2>
-            <p class="text-zinc-600">${details.slice(0, 600) + "..."}</p>
+            <p class="text-zinc-600 ">${details.slice(0, 400) + "..."}</p>
             <div class="card-actions justify-between items-center">
                 <div class="flex justify-between items-center ">
                     <div class="avatar online mr-4">
@@ -79,42 +83,74 @@ const showNewsByCategory = async (id,name) => {
                         </div>
                         
                         <div>
-                            <h4>${name}</h4>
+                            <h4>${name === null ? "No found" : name}</h4>
                         </div>
                         
                     </div>
                     <div >
-                         <p class="text-gray-600">View ${total_view}</p>
+                         <p class="text-gray-600">View ${
+                           total_view === null ? "No found" : total_view
+                         }</p>
                         </div>
-                         <button class="btn bg-white text-gray-500 hover:bg-white border-sky-400 hover:text-sky-400">></button>
+                        <label onclick="newsDetail('${_id}')" for="my-modal" class="btn modal-button  bg-white text-gray-500 hover:bg-white border-sky-400 hover:text-sky-400">></label>
+                         
                     </div>
                     
                 </div>
           </div>
         `;
-    newsContainer.appendChild(newsDiv);
+      newsContainer.appendChild(newsDiv);
+      const spinner = document.getElementById("spiner");
+      spinner.classList.add("hidden");
   });
 };
+//  Modal section
+const newsDetail = async (alldetails) => {
+  const url = `https://openapi.programming-hero.com/api/news/${alldetails}`;
+  const respons = await fetch(url);
+  const data = await respons.json();
+  const loaddetail = data.data[0];
+  console.log(loaddetail);
+  const {
+    author,
+    details,
+    image_url,
+    others_info,
+    thumbnail_url,
+    title,
+    total_view,
+    _id,
+  } = loaddetail;
+  const { name, img, published_date } = author;
 
-// (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-// 0:
-// author: {name: 'Jimmy Dane', published_date: '2022-08-24 17:27:34', img: 'https://images.unsplash.com/photo-1633332755192-72…HxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80'}
-// category_id: "01"
-// details: "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News) – U.S. President Joe Biden has announced nearly $3 billion in new U.S. military aid for Kyiv as Ukraine marked its independence day six months after Russia invaded the country.'The United States of America is committed to supporting the people of Ukraine as they continue the fight to defend their sovereignty. As part of that commitment, I am proud to announce our biggest tranche of security assistance to date: approximately $2."
-// image_url: "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png"
-// others_info: {is_todays_pick: false, is_trending: true}
-// rating: {number: 4.5, badge: 'Excellent'}
-// thumbnail_url: "https://i.ibb.co/QnwC4sG/unsplash-Eh-Tc-C9s-YXsw-11.png"
-// title: "Biden Pledges Nearly $3 Billion To Ukraine In Largest U.S. Military Aid Package Yet"
-// total_view: 488
-// _id: "0282e0e58a5c404fbd15261f11c2ab6a"
-// [[Prototype]]: Object
-// 1: {_id: 'f69a695f037cd9484cecaea37ca71011', others_info: {…}, category_id: '01', rating: {…}, total_view: 400, …}
-// 2: {_id: '11468ed61aee84de492a8b04158a22f0', others_info: {…}, category_id: '01', rating: {…}, total_view: 980, …}
-// 3: {_id: '7c4dfea0fafddc813673282a428429b7', others_info: {…}, category_id: '01', rating: {…}, total_view: 0, …}
-// 4: {_id: '30af81e91ab3eafc0bcae0de62f55d5c', others_info: {…}, category_id: '01', rating: {…}, total_view: 320, …}
-// 5: {_id: '919db97c34e0778b387dd40cdfa08130', others_info: {…}, category_id: '01', rating: {…}, total_view: 89, …}
-// 6: {_id: '374df11ae3d9b8b9ce21f4dc53f59b85', others_info: {…}, category_id: '01', rating: {…}, total_view: 798, …}
-// 7: {_id: 'be44c843d61859cc0b87cae85c55f9db', others_info: {…}, category_id: '01', rating: {…}, total_view: 231, …}
-// length: 8
-// [[Prototype]]: Array(0)
+  const modalContainer = document.getElementById("modal-body");
+  modalContainer.textContent = "";
+
+  const childDiv = document.createElement("div");
+  childDiv.classList.add("modal-box");
+  childDiv.innerHTML = `
+            <div class="flex justify-between mb-4">
+            <h6 class="text-xs">Post by : ${
+              name === null ? "No found" : name
+            }</h6>
+            <h6 class="text-xs">${
+              published_date === null ? "No found" : published_date
+            }</h6>
+            </div>
+
+
+            <img src="${image_url}"/>
+            <h3 class="font-bold text-lg">
+              ${title === null ? "No found" : title}
+            </h3>
+            <p class="py-4">
+              ${details === null ? "No found" : details}
+            </p>
+            <div class="modal-action">
+              <label for="my-modal" class="btn modal-button  bg-white text-gray-500 hover:bg-white border-sky-400 hover:text-sky-400">Close</label>
+            </div>
+    `;
+  modalContainer.appendChild(childDiv);
+};
+
+

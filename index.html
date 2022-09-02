@@ -27,7 +27,9 @@
           </div>
           <div class="flex-none">
             <ul class="menu menu-horizontal p-0">
-              <li><a href="#">News</a></li>
+              <li>
+                <a href="index.html" class="border-b-2 bor border-b-sky-400">News</a>
+              </li>
               <li><a>Blog</a></li>
             </ul>
           </div>
@@ -51,22 +53,35 @@
     <!-- main section  -->
     <main class="container mx-auto">
       <!-- number of found section -->
-      <section id="found-category" class="bg-white py-4 mt-8 px-5 text-center">
-        
+      <section
+        id="found-category"
+        class="bg-white py-4 mt-8 px-5 text-center"
+      ></section>
+
+      <!-- spiner section  -->
+      <section id="spiner" class="text-center mt-2 hidden">
+        <progress class="progress w-56"></progress>
       </section>
 
       <!-- news section  -->
-      <section  class="mt-12">
-        <div id="news-container" class="grid grid-cols-1 md:grid-cols-1 gap-4">
+      <section class="mt-12">
+        <div
+          id="news-container"
+          class="grid grid-cols-1 md:grid-cols-1 gap-4"
+        ></div>
+      </section>
 
-        </div>
+      <!-- modal section  -->
+      <section>
+        <input type="checkbox" id="my-modal" class="modal-toggle" />
+        <div id="modal-body" class="modal"></div>
       </section>
     </main>
 
     <!-- footer section  -->
-    <!-- <footer class="py-10 text-xs text-white bg-slate-700 text-center footer-conter">
+    <footer>
       <p>Copyright © 2022 - All right reserved</p>
-    </footer> -->
+    </footer>
 
     <script src="js/TazaNews.js"></script>
   </body>
