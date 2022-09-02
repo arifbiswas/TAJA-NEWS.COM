@@ -19,23 +19,33 @@ const categoryDisplay = async () => {
     const childDiv = document.createElement("div");
     childDiv.classList.add("category");
     childDiv.innerHTML = `
-        <button onclick="showNewsByCategory('${category_id}')">${category_name}</button>
+        <button onclick="showNewsByCategory('${category_id}','${category_name}')">${category_name}</button>
         `;
     categoryContainer.appendChild(childDiv);
   });
 };
 categoryDisplay();
 
-const showNewsByCategory = async (id) => {
-  // console.log(id);
+const showNewsByCategory = async (id,name) => {
+  console.log(id);
 
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   const respons = await fetch(url);
   const data = await respons.json();
   // console.log(data.data);
+
   const newsContainer = document.getElementById("news-container");
   newsContainer.textContent = "";
   const loadnews = data.data;
+
+  // found of number news
+  const foundTotalNews = loadnews.length;
+  // console.log(foundTotalNews);
+  const totalFoundNewsContainer = document.getElementById("found-category");
+  totalFoundNewsContainer.textContent = "";
+  const childH5 = document.createElement("h5");
+  childH5.innerText = `${foundTotalNews} Found News ${name}`;
+  totalFoundNewsContainer.appendChild(childH5);
 
   // console.log(news);
   loadnews.forEach((news) => {
@@ -61,7 +71,7 @@ const showNewsByCategory = async (id) => {
             <h2 class="card-title">${title}</h2>
             <p class="text-zinc-600">${details.slice(0, 600) + "..."}</p>
             <div class="card-actions justify-between items-center">
-                <div class="flex ">
+                <div class="flex justify-between items-center ">
                     <div class="avatar online mr-4">
                         <div class="w-12 rounded-full">
                             <img src="${img}" />
@@ -70,10 +80,6 @@ const showNewsByCategory = async (id) => {
                         
                         <div>
                             <h4>${name}</h4>
-                            <p class="text-sm">${published_date.slice(
-                              0,
-                              11
-                            )}</p>
                         </div>
                         
                     </div>
