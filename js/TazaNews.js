@@ -60,13 +60,14 @@ const showNewsByCategory = async (id) => {
           <div class="card-body">
             <h2 class="card-title">${title}</h2>
             <p class="text-zinc-600">${details.slice(0, 600) + "..."}</p>
-            <div class="card-actions justify-between">
-                <div class="flex">
+            <div class="card-actions justify-between items-center">
+                <div class="flex ">
                     <div class="avatar online mr-4">
                         <div class="w-12 rounded-full">
                             <img src="${img}" />
                         </div>
-                    </div>
+                        </div>
+                        
                         <div>
                             <h4>${name}</h4>
                             <p class="text-sm">${published_date.slice(
@@ -74,10 +75,14 @@ const showNewsByCategory = async (id) => {
                               11
                             )}</p>
                         </div>
-                
+                        
                     </div>
+                    <div >
+                         <p class="text-gray-600">View ${total_view}</p>
+                        </div>
                          <button class="btn bg-white text-gray-500 hover:bg-white border-sky-400 hover:text-sky-400">></button>
                     </div>
+                    
                 </div>
           </div>
         `;
