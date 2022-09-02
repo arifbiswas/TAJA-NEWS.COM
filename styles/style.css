@@ -9,6 +9,7 @@
 }
 .category:hover{
     color:rgb(99, 76, 202) ;
+    background-color: rgb(241, 238, 255);
 }
 /* .footer-conter{
     position: fixed;
