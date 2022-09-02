@@ -1,3 +1,16 @@
-*{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.full-bodyColor{
+    background-color: rgb(251, 244, 248);
 }
+*{
+    font-family: 'Poppins',
+            sans-serif;
+}
+.category:hover{
+    color:rgb(99, 76, 202) ;
+}
+/* .footer-conter{
+    position: fixed;
+    bottom: 0;
+} */
