@@ -5,13 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TAJA-NEWS.COM</title>
+    <!-- daisyui link  -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css"
       rel="stylesheet"
       type="text/css"
     />
+    <!-- tailwindcss  -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="favicon/1.png" type="image/x-icon" />
+
+    <!-- fontawsome -->
+    <script
+      src="https://kit.fontawesome.com/5c47e8fcb0.js"
+      crossorigin="anonymous"
+    ></script>
+
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
@@ -28,7 +37,9 @@
           <div class="flex-none">
             <ul class="menu menu-horizontal p-0">
               <li>
-                <a href="index.html" class="border-b-2 bor border-b-sky-400">News</a>
+                <a href="index.html" class="border-b-2 bor border-b-sky-400"
+                  >News</a
+                >
               </li>
               <li><a href="blog.html">Blog</a></li>
             </ul>
@@ -61,6 +72,15 @@
       <!-- spiner section  -->
       <section id="spiner" class="text-center mt-2 hidden">
         <progress class="progress w-56"></progress>
+      </section>
+
+      <!-- sort section  -->
+      <section>
+        <label for="sort">Sort by Most view post:</label>
+        <select id="sort-container">
+          <option value="default" selected>default</option>
+          <option value="Popular" >Popular</option>
+        </select>
       </section>
 
       <!-- news section  -->

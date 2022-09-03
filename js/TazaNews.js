@@ -40,6 +40,10 @@ const showNewsByCategory = async (id = "All News", name) => {
   newsContainer.textContent = "";
   const loadnews = data.data;
 
+  // sort opption 
+   loadnews.sort((a,b)=> b.total_view-a.total_view);
+  
+
   // found of number news
   const foundTotalNews = loadnews.length;
   // console.log(foundTotalNews);
@@ -51,7 +55,7 @@ const showNewsByCategory = async (id = "All News", name) => {
 
   // all proparties
   loadnews.forEach((news) => {
-    //    console.log(news);
+      //  console.log(news);
     const {
       author,
       details,
@@ -88,11 +92,11 @@ const showNewsByCategory = async (id = "All News", name) => {
                         
                     </div>
                     <div >
-                         <p class="text-gray-600">View ${
+                         <p class="text-gray-600"><i class="fa-sharp fa-solid fa-eye"></i> ${
                            total_view === null ? "No found" : total_view
                          }</p>
                         </div>
-                        <label onclick="newsDetail('${_id}')" for="my-modal" class="btn modal-button  bg-white text-gray-500 hover:bg-white border-sky-400 hover:text-sky-400">></label>
+                        <label onclick="newsDetail('${_id}')" for="my-modal" class="btn modal-button  bg-white text-gray-500 hover:bg-white border-sky-400 hover:text-sky-400"><i class="fa-sharp fa-solid fa-arrow-right"></i></label>
                          
                     </div>
                     
@@ -130,9 +134,10 @@ const newsDetail = async (alldetails) => {
   childDiv.classList.add("modal-box");
   childDiv.innerHTML = `
             <div class="flex justify-between mb-4">
-            <h6 class="text-xs">Post by : ${
+            <h6 class="text-xs"> Post by : ${
               name === null ? "No found" : name
             }</h6>
+            
             <h6 class="text-xs">${
               published_date === null ? "No found" : published_date
             }</h6>
