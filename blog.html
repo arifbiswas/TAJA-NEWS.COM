@@ -50,82 +50,81 @@
 
     <main>
       <!-- question 1 section -->
-      <section class="bg-white py-4 container mx-auto">
-        <h2 class="text-3xl text-center text-zinc-500 font-thin">
-          ১) প্রশ্নঃ Var, let , Const এর মধ্যে পার্থক্য কি ?
+      <section class="bg-white py-5 px-2 container mx-auto rounded-lg">
+        <h2 class="text-3xl text-center text-zinc-500 font-thin px-5">
+          1. Q: What is the difference between Var, let, Const?
         </h2>
         <p
           class="text-sm font-serif text-left w-3/4 mx-auto mt-3 text-zinc-700"
         >
-          উত্তরঃ Var দিয়ে যদি কোন Veriable ডিক্লার করা হয় তাহলে সেই Veriable
-          স্কোপের বাহিরেও ব্যবহার করা যায় , যা Global Veriable ও বলা যায় , এবংকি সেই Veriable বার বার ডিক্লার করা যায়। যা আমরা ডিক্লার করার আগে
-          ব্যবহার করতে চাইলে undefined দেখায় কিন্তু Error দেয় না। কিন্তু let আর
-          Const এরা একি রকম একবারের বেশি , একি Veriable নাম ব্যবহার করা যায় না,
-          করতে গেলে Error মেরে দেয়। এবং let আর Const এর মধ্যে পার্থক্য হচ্ছে
-          Const ডিক্লার করার পর এর মান পরিবর্তন করা যায় না ।কিন্তু প্রোপার্টির
-          Value পরিবর্তন করা যায় । কিন্তু let একটু স্বাধীন , ডিক্লার করা
-          Veriable এর Value সরাসরি পরিবর্তন করা যায় ।
+          <b>Answer:</b> If any Veriable is declared with Var then that Veriable
+          Can also be used outside the scope, which is also called Global Veriable, and that Veriable can be declared repeatedly. which before we declare
+          If you want to use it shows undefined but does not give error. But let and
+          Const cannot be used more than once as a Veriable name.
+          Error kills when doing. And the difference between let and Const
+          Its value cannot be changed after declaring a const .property
+          Value can be changed. But let is a bit independent, to declare
+          Value of Veriable can be changed directly.
         </p>
       </section>
 
       <!-- question 2 section -->
-      <section class="bg-white py-4 container mx-auto mt-4">
-        <h2 class="text-3xl text-center text-zinc-500 font-thin">
-          ২) প্রশ্নঃ Array function এবং Regular function এর মধ্যে পার্থক্য কি ?
+      <section class="bg-white py-5 px-2 container mx-auto mt-4 rounded-lg">
+        <h2 class="text-3xl text-center text-zinc-500 font-thin px-5">
+          2. Q: What is the difference between Array function and Regular function?
         </h2>
         <p
           class="text-sm font-serif text-left w-3/4 mx-auto mt-3 text-zinc-700"
         >
-          উত্তরঃ regular function এবং Array function এর মধ্যে পার্থক্য হচ্ছে
-          প্রথম মত this নিয়ে, regular function নিজস্ব this আছে যা প্যারামিটার
-          দিয়ে ধরা যায়। কিন্তু Array function এর নিজস্ব কোন this নেই। যদিও this
-          দিলে কাজ করে তবে তা পুরো Global ধরে নেয়। 
-          এবং syntax 
-           // Regular
-          Function function regular() { 
-          console.log('regularFunction'); 
-          return'lol'; 
-          }
-           // Array Function const array = ()=>
-          console.log('regularFunction'); ``` Regular function , function দিয়ে
-          শুরু করতে হয় এবং curly bracket এর মধ্যে লিখতে হয় এবং রিটার্ন করতে হলে
-          return keyword ব্যবহার করতে হয় । Array function , Veriable নাম ডিক্লার
-          করে এক্সপ্রেশন দিয়ে শুরু করতে হয় যেখানে ১ টি প্যরামিটার থাকলে প্রথম
-          ব্রাকেট নাহ দিলেও চলে , এবং বিশেষ করে রিটার্ন করতে হলে যদি এক লাইনেই
-          function হয় তাহলে return করা লাগে না এমনেই রিটার্ন করে দেয় । এবং Array
-          function কে চেপ্টা function ও বলা হয় ।
+          Answer: The difference between regular function and Array function is that like first with this, regular function has its own this which can be captured with parameters. But the Array function has no this of its own. Although this works if given, it assumes the entire global.
+
+            and syntax
+
+            
+            //  Regular Function
+            function regular(){
+                console.log('regularFunction');
+                return 'lol';
+            }
+            // Array Function
+            const array = ()=> console.log('regularFunction');
+            
+
+            Regular function should start with function and should be written between curly brackets and return keyword should be used to return.
+
+            Array function, Veriable name has to be declared and started with the expression where if there is 1 parameter, the first bracket works even if the first bracket is not given, and especially if you want to return, if it is a function in one line, then it returns as if it does not need to be returned. And Array function is also called flat function.
         </p>
       </section>
       <!-- question 3 section -->
-      <section class="bg-white py-4 container mx-auto mt-4">
-        <h2 class="text-3xl text-center text-zinc-500 font-thin">
-          ৩) প্রশ্নঃ map ,forEach,filter,find এদের মধ্যে পার্থক্য কি ?
+      <section class="bg-white py-5 px-2 container mx-auto mt-4 rounded-lg">
+        <h2 class="text-3xl text-center text-zinc-500 font-thin px-5">
+          3. Q: What is the difference between map, forEach, filter, find? 
         </h2>
         <p
           class="text-sm font-serif text-left w-3/4 mx-auto mt-3 text-zinc-700"
         >
-          উত্তরঃ map , forEach, filter, find এরা সবাই Array নিয়ে কাজ করে । map
-          হলো Array প্রত্যেকটি Element কে ধরে এবং সব গুলোকে পৃথক ভাবে নিয়ে কাজ
-          করে । এবং সব শেষ ফলাফল রিটার্ন করা যায় । forEach হচ্ছে map এর মত শুধু
-          রিটার্ন করা যায় না। filter হচ্ছে Array প্রত্যেকটি Element কে ধরে এবং
-          সব গুলোকে পৃথক ভাবে **কন্ডিশনের** মাধ্যমে কাজ করে । এবং সব শেষ ফলাফল
-          রিটার্ন করা যায় । find হচ্ছে filter এর মত কিন্তু Array প্রত্যেকটি
-          Element কে ধরে **কন্ডিশনের সাথে মিল রেখে** বাকি গুলোকে Remove করে
-          ফেলে। এবং সব শেষ ফলাফল রিটার্ন করা যায় ।
+          Answer: map, forEach, filter, find all of them work with Array.
+
+          map is an Array that holds each element and works with all of them separately. And all final results can be returned.
+
+          forEach same of map but can't just return like map.
+
+          A filter is an Array that holds each element and separates each of the **conditions**.
+          works through And all final results can be returned.
+
+          find is like filter but Array holds each element **matching the condition**
+          Remove the rest. And all final results can be returned.
         </p>
       </section>
       <!-- question 4 section -->
-      <section class="bg-white py-4 container mx-auto mt-4">
-        <h2 class="text-3xl text-center text-zinc-500 font-thin">
-          ৪) প্রশ্নঃ `` ট্রাম্পেট স্ট্রিং দিয়ে কি করে এর লাভ কি ?
+      <section class="bg-white py-5 px-2 container mx-auto mt-4 mb-8 rounded-lg">
+        <h2 class="text-3xl text-center text-zinc-500 font-thin px-5">
+         4. Q: What is a template string and what are the benefits of using it?
         </h2>
         <p
           class="text-sm font-serif text-left w-3/4 mx-auto mt-3 text-zinc-700"
         >
-          উত্তরঃ `` ট্রাম্পেট স্ট্রিং এর মজাদার কাজ হচ্ছে ওয়েব পেজ কে ডাইনামিক
-          ভাবে দেখানো যায় ,এবং কোন একটি লেখাকে ভিন্ন ভিন্ন লাইনে দেখাতে গেলে
-          অনেক কোড লিখতে হয় যা ট্রাম্পেট স্ট্রিং দিয়ে অনেক সহজে লিখা ফেলা যায়
-          শুধু ` ` ব্যবহার করে ।
+          Answer: template string's interesting function is that the web page can be displayed dynamically, and to display any text on different lines, a lot of code needs to be written which can be written very easily with template string.
         </p>
       </section>
     </main>
@@ -134,7 +133,5 @@
     <footer>
       <p>Copyright © 2022 - All right reserved</p>
     </footer>
-
-    <script src="js/TazaNews.js"></script>
   </body>
 </html>

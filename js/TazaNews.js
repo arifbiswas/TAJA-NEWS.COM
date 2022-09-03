@@ -1,8 +1,14 @@
 const loadCategory = async () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
-  const respons = await fetch(url);
-  const data = await respons.json();
-  return data.data.news_category;
+  
+  try {
+    const respons = await fetch(url);
+    const data = await respons.json();
+    return data.data.news_category;
+  }
+  catch(erro) {
+    alert(erro);
+  } 
 };
 
 const categoryDisplay = async () => {
@@ -54,7 +60,7 @@ const showNewsByCategory = async (id , name) => {
 
   // all proparties
   loadnews.forEach((news) => {
-    console.log(news);
+    // console.log(news);
     const { author, details, thumbnail_url, title, total_view, _id } = news;
     //    author proparties
     const { name, img } = author;
@@ -107,7 +113,7 @@ const newsDetail = async (alldetails) => {
   const respons = await fetch(url);
   const data = await respons.json();
   const loaddetail = data.data[0];
-  console.log(loaddetail);
+  // console.log(loaddetail);
   const {
     author,
     details,
