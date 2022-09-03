@@ -28,8 +28,8 @@ categoryDisplay();
 
 const showNewsByCategory = async (id = "All News", name) => {
   // console.log(id,name);
-    const spinner = document.getElementById('spiner');
-    spinner.classList.remove("hidden");
+  const spinner = document.getElementById("spiner");
+  spinner.classList.remove("hidden");
 
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   const respons = await fetch(url);
@@ -40,9 +40,8 @@ const showNewsByCategory = async (id = "All News", name) => {
   newsContainer.textContent = "";
   const loadnews = data.data;
 
-  // sort opption 
-   loadnews.sort((a,b)=> b.total_view-a.total_view);
-  
+  // sort opption
+  loadnews.sort((a, b) => b.total_view - a.total_view);
 
   // found of number news
   const foundTotalNews = loadnews.length;
@@ -55,7 +54,7 @@ const showNewsByCategory = async (id = "All News", name) => {
 
   // all proparties
   loadnews.forEach((news) => {
-      //  console.log(news);
+    //  console.log(news);
     const {
       author,
       details,
@@ -103,11 +102,14 @@ const showNewsByCategory = async (id = "All News", name) => {
                 </div>
           </div>
         `;
-      newsContainer.appendChild(newsDiv);
-      const spinner = document.getElementById("spiner");
-      spinner.classList.add("hidden");
+    newsContainer.appendChild(newsDiv);
+    const spinner = document.getElementById("spiner");
+    spinner.classList.add("hidden");
   });
 };
+
+
+
 //  Modal section
 const newsDetail = async (alldetails) => {
   const url = `https://openapi.programming-hero.com/api/news/${alldetails}`;
