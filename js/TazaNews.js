@@ -26,7 +26,7 @@ const categoryDisplay = async () => {
 };
 categoryDisplay();
 
-const showNewsByCategory = async (id = "All News", name) => {
+const showNewsByCategory = async (id , name) => {
   // console.log(id,name);
   const spinner = document.getElementById("spiner");
   spinner.classList.remove("hidden");
@@ -40,33 +40,24 @@ const showNewsByCategory = async (id = "All News", name) => {
   newsContainer.textContent = "";
   const loadnews = data.data;
 
-  // sort opption
+  // sort opption by total_view
   loadnews.sort((a, b) => b.total_view - a.total_view);
 
-  // found of number news
+  // found of number news and category
   const foundTotalNews = loadnews.length;
   // console.log(foundTotalNews);
   const totalFoundNewsContainer = document.getElementById("found-category");
   totalFoundNewsContainer.textContent = "";
   const childH5 = document.createElement("h5");
-  childH5.innerText = `${foundTotalNews} Found News ${name}`;
+  childH5.innerText = `${foundTotalNews} News found of ${name}`;
   totalFoundNewsContainer.appendChild(childH5);
 
   // all proparties
   loadnews.forEach((news) => {
-    //  console.log(news);
-    const {
-      author,
-      details,
-      image_url,
-      others_info,
-      thumbnail_url,
-      title,
-      total_view,
-      _id,
-    } = news;
+    console.log(news);
+    const { author, details, thumbnail_url, title, total_view, _id } = news;
     //    author proparties
-    const { name, img, published_date } = author;
+    const { name, img } = author;
     // console.log(author);
     const newsDiv = document.createElement("div");
     newsDiv.classList.add("card", "md:card-side", "bg-base-100");
@@ -121,13 +112,9 @@ const newsDetail = async (alldetails) => {
     author,
     details,
     image_url,
-    others_info,
-    thumbnail_url,
-    title,
-    total_view,
-    _id,
-  } = loaddetail;
-  const { name, img, published_date } = author;
+    title
+    } = loaddetail;
+  const { name, published_date } = author;
 
   const modalContainer = document.getElementById("modal-body");
   modalContainer.textContent = "";
